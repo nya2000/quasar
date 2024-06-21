@@ -1,18 +1,25 @@
 <template>
   <form class="auth_form_container">
+    <input class="form_input" placeholder="Логин*" required type="text" />
     <input
       class="form_input"
-      v-for="(field, index) in FORM_FIELDS"
-      :key="index"
-      :placeholder="field.placeholder"
-      :required="field.required"
+      placeholder="Никнейм*"
+      required
+      type="text"
+      v-if="type === AUTH_PAGE_TYPES.LOGIN"
     />
+    <input
+      class="form_input"
+      placeholder="E-mail@gmail.com"
+      type="email"
+      v-if="type === AUTH_PAGE_TYPES.LOGIN"
+    />
+    <input class="form_input" placeholder="Пароль*" required type="password" />
   </form>
 </template>
 
 <script setup>
-import { ref, onMounted } from "vue";
-import { DEFAULT_LOGIN_FIELDS } from "../utils/const";
+import { AUTH_PAGE_TYPES } from "../utils/const";
 defineOptions({
   name: "AuthorizationForm",
 });
@@ -23,19 +30,6 @@ const props = defineProps({
     type: String,
     required: true,
   },
-});
-
-const getFormFields = () => {
-  if (!DEFAULT_LOGIN_FIELDS) return;
-  return DEFAULT_LOGIN_FIELDS.filter((field) =>
-    field.types.includes(props.type)
-  );
-};
-
-const FORM_FIELDS = ref(getFormFields());
-
-onMounted(() => {
-  console.log("mount");
 });
 </script>
 

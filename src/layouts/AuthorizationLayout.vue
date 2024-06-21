@@ -29,6 +29,7 @@
                 : "У вас уже есть аккаунт?"
             }}
             <router-link
+              class="hint_link"
               :to="pageType === AUTH_PAGE_TYPES.LOGIN ? '/register' : '/login'"
               >{{
                 pageType === AUTH_PAGE_TYPES.LOGIN
@@ -90,5 +91,8 @@ const updateFormData = (formData) => {
   flex-direction: column;
   align-items: center;
   gap: 16px;
+}
+.hint_link {
+  color: $text-hint-color;
 }
 </style>

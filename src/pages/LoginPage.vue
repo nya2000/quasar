@@ -1,12 +1,13 @@
 <template>
   <AuthorizationForm :type="pageType" />
-  <!-- <button @click="provideDataToLayout">Provide data</button> -->
+  <AuthenticationSection :type="pageType" style="margin-top: 16px" />
 </template>
 
 <script setup>
-import { ref, defineEmits, watch } from "vue";
+import { ref, defineEmits } from "vue";
 import { useRoute } from "vue-router";
 import AuthorizationForm from "../components/AuthorizationForm";
+import AuthenticationSection from "../components/AuthenticationSection";
 import { AUTH_PAGE_TYPES } from "../utils/const";
 
 defineOptions({
