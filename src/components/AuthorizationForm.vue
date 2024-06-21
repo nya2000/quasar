@@ -16,6 +16,7 @@ import { DEFAULT_LOGIN_FIELDS } from "../utils/const";
 defineOptions({
   name: "AuthorizationForm",
 });
+// .
 
 const props = defineProps({
   type: {
